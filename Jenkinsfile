@@ -40,6 +40,12 @@ pipeline {
             }
         }
         
+          stage('Docker Image Pull'){
+            steps {
+                sh 'docker pull gauravgadre123/docker_jenkins_springboot:${BUILD_NUMBER}'
+            }
+        }
+        
         stage('Docker deploy'){
             steps {
                
