@@ -12,10 +12,15 @@ pipeline {
         stage('deploy') {  
             steps {
                 sh "mvn package"
+                docker stop $(docker ps -a -q)
             }
         }
-
-
+ 
+       stage('stop all running containers ') {  
+            steps {
+               sh "docker stop $(docker ps -a -q)"
+            }
+        }
         stage('Build Docker image'){
             steps {
               
