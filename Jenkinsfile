@@ -48,8 +48,8 @@ pipeline {
         
         stage('Docker deploy'){
             steps {
-               
-                sh 'docker run -itd -p 9090:9090 gauravgadre123/docker_jenkins_springboot:${BUILD_NUMBER}'
+              
+                sh 'docker run -d -e SERVER_PORT=9090  -p 9191:9090  -it gauravgadre123/docker_jenkins_springboot:${BUILD_NUMBER}'
             }
         }
 
