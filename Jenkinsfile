@@ -16,11 +16,7 @@ pipeline {
             }
         }
  
-       stage('stop all running containers ') {  
-            steps {
-               sh "docker stop $(docker ps -a -q)"
-            }
-        }
+      
         stage('Build Docker image'){
             steps {
               
@@ -50,7 +46,12 @@ pipeline {
                 sh 'docker pull gauravgadre123/docker_jenkins_springboot:${BUILD_NUMBER}'
             }
         }
-        
+         
+        stage('stop all running containers') {  
+            steps {
+               sh "docker stop $(docker ps -a -q)"
+            }
+        }
         stage('Docker deploy'){
             steps {
               
