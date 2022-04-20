@@ -12,7 +12,6 @@ pipeline {
         stage('deploy') {  
             steps {
                 sh "mvn package"
-                
             }
         }
  
