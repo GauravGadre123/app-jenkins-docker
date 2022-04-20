@@ -47,11 +47,7 @@ pipeline {
             }
         }
          
-        stage('stop all running containers') {  
-            steps {
-               sh "docker stop $(docker ps -a -q)"
-            }
-        }
+       
         stage('Docker deploy'){
             steps {
               
