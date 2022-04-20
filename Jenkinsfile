@@ -12,7 +12,7 @@ pipeline {
         stage('deploy') {  
             steps {
                 sh "mvn package"
-                docker stop $(docker ps -a -q)
+                
             }
         }
  
