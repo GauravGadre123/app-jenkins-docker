@@ -31,9 +31,17 @@ pipeline {
                  withCredentials([string(credentialsId: 'DockerId1', variable: 'Dockerpwd')]) 
                  {
                        sh "docker login -u gauravgadre123 -p ${Dockerpwd}"
+                     
                  }
             }                
         }
+        
+         stage('Restart Docker'){
+            steps {
+                sh 'sudo service docker restart'
+            }
+        }
+        
 
         stage('Docker Push'){
             steps {
